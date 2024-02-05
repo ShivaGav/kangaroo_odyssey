@@ -1,0 +1,95 @@
+/* Importing Google font - Open Sans */
+/* copy font from source code */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open sans", sans-serif;
+}
+.main{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.game{
+    background-color: #fff;
+    width: 900px;
+    height: 470px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+body {
+    font-size: 24px; /* Adjust the base font size for the entire document */
+}
+.left {
+
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    gap:1.5rem;
+    text-align: center;
+}
+.left h1{
+    font-size: 1.5rem;
+}
+
+.right {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    gap: 1.7rem;
+    position: relative; /* Add position relative to establish a positioning context */
+	
+#startGame {
+    padding: 10px 20px; /* Increase or decrease as needed */
+    font-size: 20px; /* Increase or decrease as needed */
+    border-radius: 5px; /* Optional - for rounded corners */
+	background-color: #36454f; /* Change 'blue' to any color you prefer */
+    color: white; /* Change the text color to contrast with the background */
+}
+
+#easy {
+    padding: 10px 20px; /* Increase or decrease as needed */
+    font-size: 20px; /* Increase or decrease as needed */
+    border-radius: 5px; /* Optional - for rounded corners */
+	background-color: #36454f; /* Change 'blue' to any color you prefer */
+    color: white; /* Change the text color to contrast with the background */
+}
+
+#mode {
+    padding: 10px 20px; /* Increase or decrease as needed */
+    font-size: 20px; /* Increase or decrease as needed */
+    border-radius: 5px; /* Optional - for rounded corners */
+	background-color: #36454f; /* Change 'blue' to any color you prefer */
+    color: white; /* Change the text color to contrast with the background */
+}
+
+#diff {
+    padding: 10px 20px; /* Increase or decrease as needed */
+    font-size: 20px; /* Increase or decrease as needed */
+    border-radius: 5px; /* Optional - for rounded corners */
+	background-color: #36454f; /* Change 'blue' to any color you prefer */
+    color: white; /* Change the text color to contrast with the background */
+}
+
+h1 {
+  padding-top: 50px;
+}
+
+h6 {
+  padding-top: 80px;
+}

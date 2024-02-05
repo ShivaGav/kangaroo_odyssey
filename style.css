@@ -1,0 +1,608 @@
+/* Importing Google font - Open Sans */
+/* copy font from source code */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open sans", sans-serif;
+}
+.main{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.game{
+    background-color: #fff;
+    width: 900px;
+    height: 470px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+body {
+    font-size: 24px; /* Adjust the base font size for the entire document */
+}
+.left {
+
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    gap:1.5rem;
+    text-align: center;
+}
+.left h1{
+    font-size: 1.5rem;
+}
+
+.right {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    gap: 1.7rem;
+    position: relative; /* Add position relative to establish a positioning context */
+}
+
+.points {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    font-size: 16px;
+    margin: 0; /* Remove default margin */
+    z-index: 1; /* Add a higher z-index to place it above other elements */
+}
+/* Add this to your existing CSS */
+
+#names{
+    font-size: 12px;
+}
+
+.incorrect-guesses {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    margin: 0;
+    z-index: 1;
+}
+.GameOver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  z-index: 150;
+}
+
+.GameOver.show {
+  display: block;
+}
+
+.GameOver h3 {
+  font-size: 35px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.GameOver h6 {
+  font-size: 15px;
+  margin-bottom: 50px;
+}
+
+.GameOver button {
+  width: 110px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: crimson;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+
+.hintBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 350px;
+    height: 350px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 150;
+  }
+  
+  .hintBox.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hintBox.hide{
+    display: none;
+  }
+  
+  .hintBox h3 {
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .hintBox h6 {
+    font-size: 15px;
+    margin-bottom: 50px;
+  }
+  
+  .hintBox button {
+    width: 120px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+
+
+
+
+
+  .hintWarning {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 350px;
+    height: 350px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 150;
+  }
+  
+  .hintWarning.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hintWarning.hide{
+    display: none;
+  }
+  
+  .hintWarning h3 {
+    font-size: 35px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .hintWarning h6 {
+    font-size: 15px;
+    margin-bottom: 50px;
+  }
+  
+  .hintWarning button {
+    width: 120px;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-top: 50px;
+  }
+
+.btn:disabled.matched {
+ background-color: rgb(60, 145, 60); /* Green background for matched letters */
+ color: rgb(58, 58, 58); /* White text color */
+}
+
+.btn:disabled.not-matched {
+ background-color: rgb(150, 59, 59); /* Red background for unmatched letters */
+ color: rgb(58, 58, 58); /* White text color */
+}
+
+.word-display{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+
+}
+.letter{
+    list-style: none;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 2rem;
+    width: 30px;
+    margin-bottom: 3px;
+    border-bottom: 3px solid #000;
+}
+.letter.guess{
+    border: transparent;
+    margin-top: -30px;
+}
+
+.keyboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+
+}
+.btn{
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #36454f;
+    color:#fff;
+    font-size: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.GameOver{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        background: #fff;
+        width: 350px;
+        height: 350px;
+        display: none;
+        text-align: center;
+        border-radius: 20px;
+        z-index: 150;
+        
+      
+}
+.GameOver.show{
+        display: block;
+}
+.gameoverImg{
+      width: 150px;  
+      margin-top:40px;
+      
+}
+.GameOver h3{
+        
+        font-size:35px;
+}
+.GameOver h6{
+        font-size: 15px;
+}
+.GameOver button{
+        width: 110px;
+        height: 40px;
+       border-radius: 8px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bolder;
+        cursor: pointer; 
+
+
+.GameOver{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        background: #fff;
+        width: 350px;
+        height: 350px;
+        display: none;
+        text-align: center;
+        border-radius: 20px;
+        z-index: 150;
+}
+      
+}
+.GameOver.show{
+        display: block;
+}
+.gameoverImg{
+      width: 150px;  
+      margin-top:40px;
+      
+}
+.GameOver h3{
+        
+        font-size:35px;
+}
+.GameOver h6{
+        font-size: 15px;
+}
+.GameOver button{
+        width: 110px;
+        height: 40px;
+       border-radius: 8px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bolder;
+        cursor: pointer;
+}
+
+.hintBox{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 350px;
+    height: 350px;
+    display: none;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 150;
+}
+
+.hintBox h3{
+    font-size:35px;
+}
+.hintBox h6{
+    font-size: 15px;
+}
+.hintBox button{
+    width: 110px;
+    height: 40px;
+   border-radius: 8px;
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bolder;
+    cursor: pointer; 
+}
+
+.hintBox.show{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hintWarning{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    width: 350px;
+    height: 350px;
+    display: none;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 150;
+}
+
+.hintWarning h3{
+    font-size:35px;
+}
+.hintWarning h6{
+    font-size: 15px;
+}
+.hintWarning button{
+    width: 110px;
+    height: 40px;
+   border-radius: 8px;
+    border: none;
+    background-color: crimson;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bolder;
+    cursor: pointer; 
+}
+
+.hintWarning.show{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.remaining-hints {
+  font-size: 18px;
+  margin-top: 14px; /* Adjust the margin-top value as needed */
+  margin-bottom: -20px;  /* Set the height of the button */  /* Adjust the font size as needed */
+}
+.auto-guess-btn {
+  width: 60px; /* Set the width of the button */
+  height: 30px;
+  margin-top: -15px; /* Adjust the margin-top value as needed */
+  margin-bottom: -33px;  /* Set the height of the button */
+  font-size: 18px; /* Set font size for the button text */
+  background-color: #36454f; /* Change 'blue' to any color you prefer */
+  color: white; /* Change the text color to contrast with the background */
+  border-radius: 10px; /* Increase or decrease as needed */
+}
+@media (max-width:700px) {
+    .game {
+        flex-direction: column;
+        height: 650px;
+        width: 450px;
+        gap: 1.7rem;
+    }
+    .img{
+        width: 240px;
+        margin-bottom: 50px;
+    }
+
+    html{
+        font-size: 95%;
+    }
+    .btn {
+        width: 40px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+    
+
+    .left {
+        width: 100%;
+        height: 40%;
+    }
+
+    .left h1 {
+        display: none;
+
+    }
+
+    .right {
+        width: 90%;
+        height: 40%;
+    }
+
+}
+@media (max-width:438px) {
+    .game {
+        flex-direction: column;
+        height: 650px;
+        width: 450px;
+        gap: 2.5rem;
+    }
+   
+    .btn{
+        width: 35px;
+        height: 34px;
+        border-radius: 5px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+}
+@media (max-width:390px) {
+    .game {
+        flex-direction: column;
+        height: 650px;
+        width: 450px;
+        gap: 2.5rem;
+    }
+   
+    .btn {
+        width: 35px;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+}
+
+@media (max-width:346px) {
+    .game {
+        flex-direction: column;
+        height: 650px;
+        width: 450px;
+        gap: 1.7rem;
+    }
+    .img{
+        width: 230px;
+        margin-bottom: 50px;
+    }
+
+    html{
+        font-size: 95%;
+    }
+    .btn {
+        width: 27px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        background-color: crimson;
+        color: #fff;
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+	
+    .left {
+        width: 100%;
+        height: 40%;
+    }
+
+    .left h1 {
+        display: none;
+
+    }
+
+    .right {
+        width: 90%;
+        height: 40%;
+    }
+
+
+    }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Hangaroo Game</title>
+ <link rel="stylesheet" href="style.css">
+ <!-- script -->
+ <script src="wordlist.js" defer></script>
+ <script src="script.js" defer></script>
+</head>
+<body>
+ <div class="main">
+    <div class="game">
+      <div class="left"></div>
+      <div class="right">
+        <p class="points">Points: 0</p> <!-- Moved to the top left -->
+        <!-- Add this below the points paragraph -->
+        <p class="question-number">Question: 1/10</p>
+
+        <!-- ... rest of your HTML ... -->
+
+        <h4>
+          Hint: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Laborum, ipsum!
+        </h4>
+        
+        <ul class="word-display"></ul>
+        <!-- Update the paragraph to have a class -->
+        <p class="incorrect-guesses">Incorrect guesses: <span class="chance" style="color: red">0/3</span></p>
+
+        <div class="keyboard"></div>
+        <button class="auto-guess-btn">Hint</button>
+        <!-- Add this below the Hint button -->
+        <p class="remaining-hints">Remaining Hints: 3/3</p>
+		
+
+      </div>
+    </div>
+    <div class="GameOver">
+      <h3>Game Over!</h3>
+      <h6>
+        The Correct Word Was: <span class="answer" style="color: red">Jazz</span>
+      </h6>
+      <button id = nextlevel>PLAY AGAIN</button>
+    </div>
+    <div class = "hintBox">
+      <h3>Pick a hint:</h3>
+      <button id="vowelBtn">Vowel</button>
+      <button id="consonantBtn">Consonant</button>
+    </div>
+    <div class = "hintWarning">
+      <h3>a</h3>
+      <button id="closeWindow">OK</button>
+    </div>
+ </div>
+</body>
+</html>
